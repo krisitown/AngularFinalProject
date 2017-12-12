@@ -1,0 +1,9 @@
+<h1>Posts</h1>
+
+<div class="container">
+  <div *ngFor="let post of posts" class="post">
+    <a href="{{post.url}}"><h4>{{post.title}}</h4></a>
+    <p>Submitted by: <strong>{{post.author}}</strong></p>
+    <p>{{post.description}}</p>
+  </div>
+</div>
