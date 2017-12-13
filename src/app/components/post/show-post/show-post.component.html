@@ -9,11 +9,16 @@
     name="content"
     [(ngModel)]="newComment.content"
     #title="ngModel"></textarea>
+    <div *ngIf="newCommentFail" class="alert alert-danger">
+      Invalid input!
+    </div>
   <button [disabled]="!createPostForm.form.valid" type="submit" class="btn btn-success">Submit</button>
 </form>
 
 <h4>Comments:</h4>
-<div class="comment" *ngFor="let comment of comments">
-  <p>Author: <strong>{{comment.author}}</strong></p>
-  <p>{{comment.content}}</p>
+<div class="form-group">
+    <div class="panel panel-primary" *ngFor="let comment of comments">
+        <div class="panel-heading"><p>Author: <strong>{{comment.author}}</strong></p></div>
+        <p class="panel-body">{{comment.content}}</p>
+      </div>
 </div>

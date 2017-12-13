@@ -24,6 +24,10 @@ export class ShowPostComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    if(localStorage.getItem('authtoken') == null){
+      this.router.navigate(['login'])
+    }
+    
     this.newComment = new CommentModel(localStorage.getItem('username'), "");
     this.route.params.subscribe(params => {
       let id = params['id'];

@@ -1,9 +1,11 @@
 <h1>Posts</h1>
 
-<div class="container">
-  <div *ngFor="let post of posts" class="post">
-    <a [routerLink]="['/posts', post._id]"><h4>{{post.title}}</h4></a>
-    <p>Submitted by: <strong>{{post.author}}</strong></p>
-    <p>{{post.description}}</p>
+<div class="container panel-group">
+  <div *ngFor="let post of posts" class="post" class="panel panel-default">
+    <div class="panel-heading"><a [routerLink]="['/posts', post._id]"><h4>{{post.title}}</h4></a></div>
+    <div class="panel-body">
+        <p>Submitted by: <strong>{{post.author}}</strong></p>
+        <p>{{post.description}}</p>
+    </div>
   </div>
 </div>

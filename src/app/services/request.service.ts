@@ -70,9 +70,7 @@ export class RequestService {
 
   //helper methods
   isLoggedIn() {
-    let authtoken : string = localStorage.getItem('authtoken');
-
-    return authtoken === this.currentAuthtoken;
+    return localStorage.getItem('authtoken') != null;
   }
 
   get authtoken() {

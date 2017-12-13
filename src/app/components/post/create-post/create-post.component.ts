@@ -19,6 +19,9 @@ export class CreatePostComponent {
     private requestService : RequestService,
     private router : Router
   ) { 
+    if(localStorage.getItem('authtoken') == null){
+      this.router.navigate(['login'])
+    }
     this.model = new PostModel(localStorage.getItem('username'), "", "", "", "");
   }
 
