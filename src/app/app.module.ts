@@ -15,6 +15,7 @@ import { AllPostsComponent } from './components/post/all-posts/all-posts.compone
 import { AuthGuard } from './guards/auth.guard.service';
 import { RequestService } from './services/request.service';
 import { CreatePostComponent } from './components/post/create-post/create-post.component';
+import { ShowPostComponent } from './components/post/show-post/show-post.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CreatePostComponent } from './components/post/create-post/create-post.c
     AppComponent,
     HomeComponent,
     AllPostsComponent,
-    CreatePostComponent
+    CreatePostComponent,
+    ShowPostComponent
   ],
   imports: [
     BrowserModule,

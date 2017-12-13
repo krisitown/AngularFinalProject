@@ -1,0 +1,19 @@
+<a href="{{model.url}}"><h1>{{model.title}}</h1></a>
+<p>Submitted by: <strong>{{model.author}}</strong></p>
+<img src="{{model.imageUrl}}" />
+<p>{{model.description}}</p>
+
+<h4>Add comment:</h4>
+<form (ngSubmit)="addComment()" #createPostForm="ngForm">
+    <textarea class="form-control" id="content" required 
+    name="content"
+    [(ngModel)]="newComment.content"
+    #title="ngModel"></textarea>
+  <button [disabled]="!createPostForm.form.valid" type="submit" class="btn btn-success">Submit</button>
+</form>
+
+<h4>Comments:</h4>
+<div class="comment" *ngFor="let comment of comments">
+  <p>Author: <strong>{{comment.author}}</strong></p>
+  <p>{{comment.content}}</p>
+</div>

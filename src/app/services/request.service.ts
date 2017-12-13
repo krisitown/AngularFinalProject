@@ -9,6 +9,8 @@ const appKey = 'kid_SkqK9WDdZ';
 const appSecret = '3839328876b54268b827362cf5ecf5e7';
 const postsIndexUrl = `https://baas.kinvey.com/appdata/${appKey}/posts?query={}&sort={"_kmd.ect": -1}`
 const createPostUrl = `https://baas.kinvey.com/appdata/${appKey}/posts`
+const showPostUrl = `https://baas.kinvey.com/appdata/${appKey}/posts/`
+const addCommentUrl = `https://baas.kinvey.com/appdata/${appKey}/comments`
 
 @Injectable()
 export class RequestService {
@@ -31,6 +33,35 @@ export class RequestService {
   public getAllPosts(){
     return this.http.get(
       postsIndexUrl,
+      {
+        headers: this.createAuthHeaders('Kinvey')
+      }
+    )
+  }
+
+  public getPost(id){
+    return this.http.get(
+      showPostUrl + id,
+      {
+        headers: this.createAuthHeaders('Kinvey')
+      }
+    )
+  }
+
+  public getPostComments(id) {
+    let getPostCommentsUrl = `https://baas.kinvey.com/appdata/${appKey}/comments?query={"postId":"${id}"}&sort={"_kmd.ect": -1}`
+    return this.http.get(
+      getPostCommentsUrl,
+      {
+        headers: this.createAuthHeaders('Kinvey')
+      }
+    )
+  }
+
+  public addComment(commentData){
+    return this.http.post(
+      addCommentUrl,
+      JSON.stringify(commentData),
       {
         headers: this.createAuthHeaders('Kinvey')
       }
